@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://drjsox7842y3v"]
+
+[ext_resource type="Script" uid="uid://d015njlj0eixq" path="res://bullet/Bullet.gd" id="1_llgt8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_llgt8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_337vr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_11vfp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vypeo"]
+albedo_color = Color(0.944945, 0.910064, 7.70092e-07, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_llgt8"]
+
+[node name="Bullet" type="RigidBody3D"]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_llgt8")
+script = ExtResource("1_llgt8")
+damage = 50
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_337vr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_11vfp")
+surface_material_override/0 = SubResource("StandardMaterial3D_vypeo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="HitBox" type="Area3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_llgt8")

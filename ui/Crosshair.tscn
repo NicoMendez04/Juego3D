@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpuefkq6aw8sk"]
+
+[ext_resource type="Script" uid="uid://txm4idp6f40c" path="res://ui/Crosshair.gd" id="1_07p3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_07p3u"]
+
+[node name="Crosshair" type="CanvasLayer"]
+script = ExtResource("1_07p3u")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+"
+label_settings = SubResource("LabelSettings_07p3u")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://du5jpie3ger5c"]
+
+[ext_resource type="Script" uid="uid://l5mcw60w48wj" path="res://world/WorldGenerator.gd" id="1_ig7tw"]
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+background_energy_multiplier = 0.0
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
+
+[node name="WorldGenerator" type="Node3D" parent="."]
+script = ExtResource("1_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 74.6172, 16.3973)
